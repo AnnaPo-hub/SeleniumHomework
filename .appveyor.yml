@@ -1,4 +1,4 @@
-image: Ubuntu  # образ для сборки
+image: Ubuntu1804  # образ для сборки
 
       branches:
         only:
@@ -13,5 +13,5 @@ image: Ubuntu  # образ для сборки
       build_script:
         - ./gradlew test --info "-Dselenide.headless=true"  # стартуем Selenide в Headless-режиме (см.ниже)
 
-#      on_finish:
-#        - ps: Stop-Process -Id $App.Id  # оставливаем SUT
+      on_finish:
+        - ps: Stop-Process -Id $App.Id  # оставливаем SUT
