@@ -42,7 +42,7 @@ public class CardApplication {
     }
 
     @Test
-    void shouldSubmitRequest2() {
+    void shouldSubmitRequestWithoutID() {
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("input[type='text']")).sendKeys("Елена Попова");
         driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("+79119686113");
@@ -50,6 +50,5 @@ public class CardApplication {
         driver.findElement(By.cssSelector("button[type='button']")).click();
         String text = driver.findElement(By.cssSelector("[data-test-id=\"order-success\"]")).getText();
         assertEquals("  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text);
-//        Thread.sleep(50000);
     }
 }
