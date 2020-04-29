@@ -48,7 +48,17 @@ public class CardApplication {
         driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("+79119686113");
         driver.findElement(By.cssSelector(".checkbox__box")).click();
         driver.findElement(By.cssSelector("button[type='button']")).click();
-        String text = driver.findElement(By.cssSelector("[data-test-id=\"order-success\"]")).getText();
+        String text = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText();
         assertEquals("  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text);
+    }
+
+    @Test
+    void shouldNotSubmitRequest() {
+        driver.get("http://localhost:9999");
+        driver.findElement(By.cssSelector("input[type='text']")).sendKeys("Rita Metzler");
+        driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("+79119686113");
+        driver.findElement(By.cssSelector(".checkbox__box")).click();
+        driver.findElement(By.cssSelector("button[type='button']")).click();
+        driver.findElement(By.cssSelector(".input_invalid"));
     }
 }
