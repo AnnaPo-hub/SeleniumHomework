@@ -66,7 +66,6 @@ public class CardApplication {
         driver.findElement(By.cssSelector(".checkbox__box")).click();
         driver.findElement(By.cssSelector("button[type='button']")).click();
         String text = driver.findElement(By.cssSelector("span[data-test-id = \"name\"] span + span +span")).getText();
-        System.out.println(text);
         assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text);
     }
 }
